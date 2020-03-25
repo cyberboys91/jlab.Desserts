@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Dessert Recipes</string>
+    <string name="banner_ad_unit_id1">ca-app-pub-6420027936185714/1546047353</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-6420027936185714/4463569328</string>
+    <string name="banner_ad_unit_id3">ca-app-pub-6420027936185714/1845430251</string>
+    <string name="show_in_google_play">Rate this app</string>
+    <string name="about">About</string>
+    <string name="close">Close</string>
+    <string name="about_content"><b>Version 1.0</b>, contact to: <i> jlab.apps@gmail.com</i></string>
+    <string name="accept">Accept</string>
+    <string name="mail">jlab.apps@gmail.com</string>
+    <string name="contact">Contact</string>
+    <string name="app_mail_not_found">You do not have an email application.</string>
+    <string name="description">Description:</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="ingredients_word">Ingredients</string>
+    <string name="prep_description">Preparation Manual:</string>
+    <string name="action_search">Search</string>
+    <string name="difficulty_0">Easy</string>
+    <string name="difficulty_1">Medium</string>
+    <string name="difficulty_2">Difficult Medium</string>
+    <string name="difficulty_3">Difficult</string>
+</resources>
