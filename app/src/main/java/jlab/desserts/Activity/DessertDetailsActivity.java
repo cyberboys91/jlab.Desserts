@@ -4,6 +4,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ public class DessertDetailsActivity extends AppCompatActivity {
     private int dessertId = 1, id = 1;
     private DessertManager dessertManager;
     private TextView tvDescription, tvIngredients, tvPrepDescription, tvDifficulty;
+    private RelativeLayout rlDescription, rlDessertImage;
     private ImageView ivImage;
     private ArrayList<Bitmap> bitmapImages;
     private ActionBar actionBar;
@@ -91,6 +94,10 @@ public class DessertDetailsActivity extends AppCompatActivity {
         this.tvPrepDescription = (TextView) findViewById(R.id.tvDessertPrepDescription);
         this.tvDifficulty = (TextView) findViewById(R.id.tvDifficulty);
         this.ivImage = (ImageView) findViewById(R.id.ivDessert);
+        this.rlDessertImage = (RelativeLayout) findViewById(R.id.rlDessertImage);
+        this.rlDessertImage.setAnimation(AnimationUtils.loadAnimation(this, R.anim.up_in));
+        this.rlDescription = (RelativeLayout) findViewById(R.id.rlDescription);
+        this.rlDescription.setAnimation(AnimationUtils.loadAnimation(this, R.anim.down_in));
         this.bitmapImages = dessertManager.getBitmapImages(this.dessertId);
         this.actionBar = getSupportActionBar();
         this.actionBar.setDisplayShowHomeEnabled(true);
@@ -112,8 +119,10 @@ public class DessertDetailsActivity extends AppCompatActivity {
         tvPrepDescription.setText(dessert.getPrepDescription());
         tvDifficulty.setText(getResources()
                 .getText(Utils.getDifficultyResourceText(dessert.getDifficulty())));
-        tvDifficulty.setBackgroundColor(getResources()
-                .getColor(Utils.getDifficultyResourceColor(dessert.getDifficulty())));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            tvDifficulty.setBackground(getDrawable(Utils.getDifficultyResourceColor(dessert.getDifficulty())));
+        else
+            tvDifficulty.setBackground(getResources().getDrawable(Utils.getDifficultyResourceColor(dessert.getDifficulty())));
         setTitle(dessert.getName());
         if(!this.imageAnim.isAlive())
             this.imageAnim.start();

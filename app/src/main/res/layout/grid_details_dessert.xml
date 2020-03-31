@@ -17,7 +17,6 @@
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:layout_marginTop="2dp"
-            android:layout_marginBottom="5dp"
             android:layout_gravity="center_vertical">
 
             <ImageView
@@ -31,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:id="@+id/tvDifficulty"
-                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:textSize="@dimen/short_text_size_v1"
@@ -45,9 +44,7 @@
         </RelativeLayout>
 
         <include layout="@layout/grid_dessert_properties"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="@dimen/middle_margin"
-            android:layout_marginRight="@dimen/middle_margin"
+            android:layout_marginTop="-10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Properties"

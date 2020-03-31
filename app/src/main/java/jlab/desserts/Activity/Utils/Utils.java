@@ -35,13 +35,13 @@ public class Utils {
     public static int getDifficultyResourceColor (int difficulty) {
         switch (difficulty) {
             case 0:
-                return R.color.difficulty_0;
+                return R.drawable.easy_difficulty_background;
             case 1:
-                return R.color.difficulty_1;
+                return R.drawable.middle_difficulty_background;
             case 2:
-                return R.color.difficulty_2;
+                return R.drawable.middle_hard_difficulty_background;
             default:
-                return R.color.difficulty_3;
+                return R.drawable.hard_difficulty_background;
         }
     }
 

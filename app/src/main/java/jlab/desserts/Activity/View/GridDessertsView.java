@@ -93,8 +93,8 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
                         + " " + getContext().getString(R.string.ingredients_word));
                 ((TextView) view.findViewById(R.id.tvDifficulty)).setText(getResources()
                         .getText(Utils.getDifficultyResourceText(resource.getDifficulty())));
-                ((TextView) view.findViewById(R.id.tvDifficulty)).setBackgroundColor(getResources()
-                        .getColor(Utils.getDifficultyResourceColor(resource.getDifficulty())));
+                view.findViewById(R.id.tvDifficulty).setBackground(getResources()
+                        .getDrawable(Utils.getDifficultyResourceColor(resource.getDifficulty())));
                 ViewGroup.LayoutParams newParams = view.getLayoutParams();
                 newParams.height = iconSize;
                 newParams.width = iconSize;

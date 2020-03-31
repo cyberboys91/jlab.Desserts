@@ -5,7 +5,8 @@
     android:layout_alignParentTop="true"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
-    android:layout_margin="@dimen/middle_margin">
+    android:padding="@dimen/middle_margin"
+    android:background="@drawable/dessert_property_grid">
 
     <TextView
         android:layout_width="fill_parent"
