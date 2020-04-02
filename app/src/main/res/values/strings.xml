@@ -20,4 +20,6 @@
     <string name="difficulty_1">Medium</string>
     <string name="difficulty_2">Difficult Medium</string>
     <string name="difficulty_3">Difficult</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="all">All</string>
 </resources>

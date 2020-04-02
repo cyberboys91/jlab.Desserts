@@ -35,6 +35,7 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
     private SwipeRefreshLayout srlRefresh;
     private SearchView searchView;
     private FloatingActionButton fbSearch;
+    private int difficulty = -1;
     private GridDessertsView.OnDessertClickListener onDessertClickListener = new GridDessertsView.OnDessertClickListener() {
         @Override
         public void onClick(Dessert dessert) {
@@ -92,7 +93,7 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int rotation = getWindowManager().getDefaultDisplay().getRotation();
         boolean isPortrait = rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_180;
-        int numColumns = (isPortrait ? 2 : 4);
+        int numColumns = (isPortrait ? 1 : 2);
         this.gridDessertsView.setNumColumns(numColumns);
         return (displayMetrics.widthPixels / numColumns);
     }
@@ -107,7 +108,7 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
     protected void onResume() {
         super.onResume();
         this.srlRefresh.setRefreshing(true);
-        this.gridDessertsView.loadContent(this.searchView.getQuery().toString());
+        this.gridDessertsView.loadContent(this.searchView.getQuery().toString(), difficulty);
         this.srlRefresh.setRefreshing(false);
     }
 
@@ -126,6 +127,26 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
                 } catch (Exception | OutOfMemoryError ignored) {
                     ignored.printStackTrace();
                 }
+                break;
+            case R.id.mnAllDifficulty:
+                difficulty = -1;
+                onResume();
+                break;
+            case R.id.mnEasyDifficulty:
+                difficulty = 0;
+                onResume();
+                break;
+            case R.id.mnMiddleDifficulty:
+                difficulty = 1;
+                onResume();
+                break;
+            case R.id.mnMiddleHardDifficulty:
+                difficulty = 2;
+                onResume();
+                break;
+            case R.id.mnHardDifficulty:
+                difficulty = 3;
+                onResume();
                 break;
             case R.id.mnAbout:
                 Utils.showAboutDialog(this, this.gridDessertsView);

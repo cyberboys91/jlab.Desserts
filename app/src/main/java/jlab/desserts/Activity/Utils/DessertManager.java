@@ -97,9 +97,16 @@ public class DessertManager extends SQLiteAssetHelper {
         }
     }
 
-    public ArrayList<Dessert> getAllDetails (String query) {
+    public ArrayList<Dessert> getAllDetails (String query, int difficulty) {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.query(DESSERT_TABLE_NAME, null, LANGUAGE_COLUMN + "= ?", new String[] { getLanguage() }, null, null, null, null);
+        Cursor cursor = db.query(DESSERT_TABLE_NAME, null,
+                difficulty != -1
+                    ? String.format("%s= ? & %s= ?", LANGUAGE_COLUMN, DIFFICULTY_COLUMN)
+                    : String.format("%s= ?", LANGUAGE_COLUMN),
+                difficulty != -1
+                    ? new String[] { getLanguage(), String.valueOf(difficulty)}
+                    : new String[] { getLanguage()},
+                null, null, null, null);
         ArrayList<Dessert> result = new ArrayList<>();
         while (cursor.moveToNext()) {
             Dessert dessert = new Dessert(cursor.getInt(cursor.getColumnIndex(ID_COLUMN)),

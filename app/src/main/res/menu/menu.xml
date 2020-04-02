@@ -1,15 +1,49 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/mnDifficulty"
+        android:title="@string/difficulty">
+        <menu>
+            <item
+                android:id="@+id/mnAllDifficulty"
+                android:orderInCategory="100"
+                android:title="@string/all"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/mnEasyDifficulty"
+                android:orderInCategory="100"
+                android:title="@string/difficulty_0"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/mnMiddleDifficulty"
+                android:orderInCategory="100"
+                android:title="@string/difficulty_1"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/mnMiddleHardDifficulty"
+                android:orderInCategory="100"
+                android:title="@string/difficulty_2"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/mnHardDifficulty"
+                android:orderInCategory="100"
+                android:title="@string/difficulty_3"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+
     <item
         android:id="@+id/mnRateApp"
         android:orderInCategory="100"
         android:title="@string/show_in_google_play"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/mnAbout"
         android:orderInCategory="100"
         android:title="@string/about"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/mnClose"
         android:orderInCategory="100"

@@ -21,4 +21,6 @@
     <string name="difficulty_1">Medio</string>
     <string name="difficulty_2">Medio Difícil</string>
     <string name="difficulty_3">Difícil</string>
+    <string name="difficulty">Dificultad</string>
+    <string name="all">Todas</string>
 </resources>

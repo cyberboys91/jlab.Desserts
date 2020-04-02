@@ -131,6 +131,7 @@ public class DessertDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+        menu.removeItem(R.id.mnDifficulty);
         return true;
     }
 

@@ -20,7 +20,7 @@
             android:layout_gravity="center_vertical">
 
             <ImageView
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:id="@+id/ivDessertListImage"
                 android:scaleType="centerCrop"/>
@@ -33,7 +33,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:textSize="@dimen/short_text_size_v1"
+                android:textSize="@dimen/text_size_big"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:paddingRight="7dp"

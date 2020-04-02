@@ -5,14 +5,14 @@
     android:layout_alignParentTop="true"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
-    android:padding="@dimen/middle_margin"
+    android:padding="15dp"
     android:background="@drawable/dessert_property_grid">
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvDessertName"
-        android:textSize="@dimen/short_text_size_v1"
+        android:textSize="@dimen/text_size_big"
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@color/black"/>
@@ -21,7 +21,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tvDessertComment"
-        android:textSize="@dimen/short_text_size_v2"
+        android:textSize="@dimen/text_size"
         android:textColor="@android:color/holo_blue_dark"
         android:layout_below="@+id/tvDessertName" />
 
