@@ -13,9 +13,10 @@ public class Dessert {
     private int countIngredients;
     private int difficulty;
     private int dessertId;
+    private boolean isFavorite;
 
     public Dessert(int id, String name, String description, String ingredients,
-                   String prepDescription, int difficulty, int dessertId) {
+                   String prepDescription, int difficulty, int dessertId, boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -23,6 +24,7 @@ public class Dessert {
         this.prepDescription = prepDescription;
         this.difficulty = difficulty;
         this.dessertId = dessertId;
+        this.isFavorite = isFavorite;
         this.countIngredients = ingredients.split("\n").length;
     }
 
@@ -56,5 +58,13 @@ public class Dessert {
 
     public int getCountIngredients() {
         return countIngredients;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 }

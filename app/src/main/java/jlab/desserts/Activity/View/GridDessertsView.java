@@ -68,16 +68,6 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
         last = firstVisibleItem + visibleItemCount - 1;
     }
 
-    @Override
-    public void onViewRemoved(View child) {
-        if(child != null) {
-            ImageView ivIcon = child.findViewById(R.id.ivDessertListImage);
-            if(ivIcon != null)
-                ivIcon.setImageDrawable(null);
-        }
-        super.onViewRemoved(child);
-    }
-
     public void setOnGetSetViewListener (final LayoutInflater inflater, final int iconSize,
                                          final OnDessertClickListener onDessertClickListener) {
         this.mAdapter.setonGetSetViewListener(new DessertAdapter.OnGetSetViewListener() {
@@ -98,9 +88,29 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
                 ViewGroup.LayoutParams newParams = view.getLayoutParams();
                 newParams.height = iconSize;
                 newParams.width = iconSize;
+                ((TextView) view.findViewById(R.id.tvDessertDescription)).setText(resource.getDescription());
+                final ImageView ivFavorite = (ImageView) view.findViewById(R.id.ivIsFavorite);
+                Utils.setFavoriteView(ivFavorite, resource.isFavorite());
+                ivFavorite.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(dessertManager.setFavoriteDessert(resource.getDessertId(), !resource.isFavorite()) > 0) {
+                            resource.setFavorite(!resource.isFavorite());
+                            Utils.setFavoriteView(ivFavorite, resource.isFavorite());
+                        }
+                    }
+                });
 
-                if(query != null && query.length() > 0)
-                {
+                ivFavorite.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        Utils.showSnackBar(resource.isFavorite()
+                                ? R.string.remove_from_favorite
+                                : R.string.add_to_favorite, view);
+                        return true;
+                    }
+                });
+                if(query != null && query.length() > 0) {
                     BackgroundColorSpan colorSpan = new BackgroundColorSpan(getResources().getColor(R.color.transparent_accent));
                     SpannableStringBuilder textBd = new SpannableStringBuilder(resource.getName());
                     int index = resource.getName().toLowerCase().indexOf(query);
@@ -133,10 +143,16 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
         });
     }
 
-    public void loadContent(String query) {
+    public void loadContent(String query, int difficulty) {
         mAdapter.clear();
         this.query = query;
-        mAdapter.addAll(dessertManager.getAllDetails(query));
+        mAdapter.addAll(dessertManager.getAllDetails(query, difficulty));
+    }
+
+    public void loadFavorites(String query) {
+        mAdapter.clear();
+        this.query = query;
+        mAdapter.addAll(dessertManager.getFavorites(query));
     }
 
     @Override

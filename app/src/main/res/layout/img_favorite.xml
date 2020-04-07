@@ -8,6 +8,6 @@
         android:layout_height="30dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/easy_difficulty_circle"/>
+        android:src="@drawable/img_favorite_checked"/>
 
 </RelativeLayout>

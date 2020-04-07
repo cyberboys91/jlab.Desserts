@@ -3,13 +3,19 @@ package jlab.desserts.Activity;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Surface;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -29,9 +35,10 @@ public class DessertDetailsActivity extends AppCompatActivity {
     private DessertManager dessertManager;
     private TextView tvDescription, tvIngredients, tvPrepDescription, tvDifficulty;
     private RelativeLayout rlDescription, rlDessertImage;
-    private ImageView ivImage;
+    private ImageView ivDessertImage, ivFavorite;
     private ArrayList<Bitmap> bitmapImages;
     private ActionBar actionBar;
+    private Toolbar toolbar;
     private Thread imageAnim = new Thread(new Runnable() {
         @Override
         public void run() {
@@ -40,7 +47,7 @@ public class DessertDetailsActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        ivImage.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha_out));
+                        ivDessertImage.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha_out));
                         new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -52,8 +59,8 @@ public class DessertDetailsActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        ivImage.setImageBitmap(bitmapImages.get(index[0]));
-                                        ivImage.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha_in));
+                                        ivDessertImage.setImageBitmap(bitmapImages.get(index[0]));
+                                        ivDessertImage.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), R.anim.alpha_in));
                                         index[0] = (index[0] + 1) % bitmapImages.size();
                                     }
                                 });
@@ -93,15 +100,35 @@ public class DessertDetailsActivity extends AppCompatActivity {
         this.tvIngredients = (TextView) findViewById(R.id.tvDessertIngredients);
         this.tvPrepDescription = (TextView) findViewById(R.id.tvDessertPrepDescription);
         this.tvDifficulty = (TextView) findViewById(R.id.tvDifficulty);
-        this.ivImage = (ImageView) findViewById(R.id.ivDessert);
+        this.ivDessertImage = (ImageView) findViewById(R.id.ivDessert);
+        loadImageHeight();
+        this.ivFavorite = (ImageView) findViewById(R.id.ivIsFavorite);
         this.rlDessertImage = (RelativeLayout) findViewById(R.id.rlDessertImage);
         this.rlDessertImage.setAnimation(AnimationUtils.loadAnimation(this, R.anim.up_in));
         this.rlDescription = (RelativeLayout) findViewById(R.id.rlDescription);
         this.rlDescription.setAnimation(AnimationUtils.loadAnimation(this, R.anim.down_in));
         this.bitmapImages = dessertManager.getBitmapImages(this.dessertId);
+        this.toolbar = (Toolbar) findViewById(R.id.tbHeader);
+        this.toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(this.toolbar);
         this.actionBar = getSupportActionBar();
         this.actionBar.setDisplayShowHomeEnabled(true);
         this.actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    private void loadImageHeight() {
+        ViewGroup.LayoutParams lp = this.ivDessertImage.getLayoutParams();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int rotation = getWindowManager().getDefaultDisplay().getRotation();
+        boolean isPortrait = rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_180;
+        lp.height = displayMetrics.heightPixels / (isPortrait ? 3 : 2);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        loadImageHeight();
     }
 
     @Override
@@ -114,6 +141,25 @@ public class DessertDetailsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         dessert = dessertManager.getDessert(id);
+        Utils.setFavoriteView(this.ivFavorite, dessert.isFavorite());
+        this.ivFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(dessertManager.setFavoriteDessert(dessert.getDessertId(), !dessert.isFavorite()) > 0) {
+                    dessert.setFavorite(!dessert.isFavorite());
+                    Utils.setFavoriteView(ivFavorite, dessert.isFavorite());
+                }
+            }
+        });
+        this.ivFavorite.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Utils.showSnackBar(dessert.isFavorite()
+                        ? R.string.remove_from_favorite
+                        : R.string.add_to_favorite, rlDescription);
+                return true;
+            }
+        });
         tvDescription.setText(dessert.getDescription());
         tvIngredients.setText(dessert.getIngredients());
         tvPrepDescription.setText(dessert.getPrepDescription());
@@ -123,7 +169,7 @@ public class DessertDetailsActivity extends AppCompatActivity {
             tvDifficulty.setBackground(getDrawable(Utils.getDifficultyResourceColor(dessert.getDifficulty())));
         else
             tvDifficulty.setBackground(getResources().getDrawable(Utils.getDifficultyResourceColor(dessert.getDifficulty())));
-        setTitle(dessert.getName());
+        this.toolbar.setTitle(dessert.getName());
         if(!this.imageAnim.isAlive())
             this.imageAnim.start();
     }
@@ -131,6 +177,8 @@ public class DessertDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+        menu.removeItem(R.id.mnDifficulty);
+        menu.removeItem(R.id.mnFavorites);
         return true;
     }
 
