@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <corners android:radius="0dp" android:topLeftRadius="0dp" android:topRightRadius="0dp"
+                android:bottomLeftRadius="5dp" android:bottomRightRadius="0dp"/>
+            <solid android:color="@color/difficulty_3"/>
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@drawable/easy_difficulty_background_v1"
+        android:text="@string/difficulty_0"
+        android:textSize="@dimen/text_size_big"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:paddingRight="7dp"
+        android:paddingEnd="7dp"
+        android:paddingLeft="7dp"
+        android:paddingStart="7dp"/>
+</LinearLayout>
