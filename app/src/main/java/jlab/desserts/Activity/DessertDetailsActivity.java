@@ -1,32 +1,29 @@
 package jlab.desserts.Activity;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
+import jlab.desserts.R;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Surface;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
 import java.util.ArrayList;
-
-import jlab.desserts.Activity.Utils.Dessert;
-import jlab.desserts.Activity.Utils.DessertManager;
+import android.view.Surface;
+import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import android.util.DisplayMetrics;
+import android.widget.RelativeLayout;
+import android.support.v7.app.ActionBar;
+import com.google.android.gms.ads.AdView;
+import android.support.v7.widget.Toolbar;
+import android.content.res.Configuration;
 import jlab.desserts.Activity.Utils.Utils;
-import jlab.desserts.R;
+import com.google.android.gms.ads.AdRequest;
+import android.view.animation.AnimationUtils;
+import jlab.desserts.Activity.Utils.Dessert;
+import android.support.v7.app.AppCompatActivity;
+import jlab.desserts.Activity.Utils.DessertManager;
 
 public class DessertDetailsActivity extends AppCompatActivity {
 

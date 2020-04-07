@@ -1,19 +1,20 @@
 package jlab.desserts.Activity.Utils;
+
 /*
  * Created by Javier on 22/03/2020.
  */
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
-import android.util.LruCache;
-import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
+import android.util.Base64;
+import java.util.ArrayList;
+import android.util.LruCache;
+import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.content.ContentValues;
+import android.graphics.BitmapFactory;
+import android.database.sqlite.SQLiteDatabase;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class DessertManager extends SQLiteAssetHelper {

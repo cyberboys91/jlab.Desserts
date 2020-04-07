@@ -1,17 +1,18 @@
 package jlab.desserts.Activity.Utils;
+
 /*
  * Created by Javier on 21/03/2020.
  */
 
+import android.net.Uri;
+import android.view.View;
+import android.content.Intent;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.support.design.widget.Snackbar;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ImageView;
+import android.content.DialogInterface;
+import android.support.design.widget.Snackbar;
 
 import jlab.desserts.R;
 

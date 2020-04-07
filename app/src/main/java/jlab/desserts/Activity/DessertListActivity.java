@@ -1,38 +1,37 @@
 package jlab.desserts.Activity;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Surface;
-import android.view.View;
-import android.view.animation.AnimationUtils;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
-import jlab.desserts.Activity.Utils.Dessert;
-import jlab.desserts.Activity.Utils.Utils;
-import jlab.desserts.Activity.View.GridDessertsView;
-import jlab.desserts.R;
-
 /*
  * Created by Javier on 22/03/2020.
  */
+
+import jlab.desserts.R;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
+import android.view.Surface;
+import android.view.MenuItem;
+import android.content.Intent;
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.content.res.Configuration;
+import android.support.v7.widget.Toolbar;
+import com.google.android.gms.ads.AdView;
+import jlab.desserts.Activity.Utils.Utils;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import jlab.desserts.Activity.Utils.Dessert;
+import com.google.android.gms.ads.AdRequest;
+import android.support.v7.widget.SearchView;
+import android.support.v4.view.GravityCompat;
+import android.view.animation.AnimationUtils;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.design.widget.NavigationView;
+import android.support.v7.app.ActionBarDrawerToggle;
+import jlab.desserts.Activity.View.GridDessertsView;
+import android.support.design.widget.FloatingActionButton;
+
 
 public class DessertListActivity extends AppCompatActivity implements Utils.IRunOnUIThread,
         NavigationView.OnNavigationItemSelectedListener{
@@ -184,9 +183,11 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mnFavorites:
-                this.loadFavorites = true;
-                difficulty = -2;
-                loadContent();
+                if(!this.loadFavorites) {
+                    this.loadFavorites = true;
+                    difficulty = -2;
+                    loadContent();
+                }
                 break;
             case R.id.mnRateApp:
                 try {
