@@ -53,6 +53,7 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
             intent.putExtra(Utils.ID_KEY, dessert.getId());
             intent.putExtra(Utils.DESSERTS_ID_KEY, dessert.getDessertId());
             startActivity(intent);
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
     };
 
@@ -252,8 +253,10 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
 
     @Override
     public void onBackPressed() {
-        if (!hideNavigationView())
+        if (!hideNavigationView()) {
             super.onBackPressed();
+            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        }
     }
 
     @Override
