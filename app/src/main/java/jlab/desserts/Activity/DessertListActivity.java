@@ -42,11 +42,15 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
     private SwipeRefreshLayout srlRefresh;
     private SearchView searchView;
     private FloatingActionButton fbSearch;
+<<<<<<< HEAD
     private DrawerLayout drawerLayout;
     private int difficulty = -1;
     private NavigationView navMenuExplorer;
     private Toolbar toolbar;
     private boolean loadFavorites;
+=======
+    private int difficulty = -1;
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
     private GridDessertsView.OnDessertClickListener onDessertClickListener = new GridDessertsView.OnDessertClickListener() {
         @Override
         public void onClick(Dessert dessert) {
@@ -149,11 +153,15 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
 
     private void loadContent() {
         this.srlRefresh.setRefreshing(true);
+<<<<<<< HEAD
         if(this.loadFavorites)
             this.gridDessertsView.loadFavorites(this.searchView.getQuery().toString());
         else
             this.gridDessertsView.loadContent(this.searchView.getQuery().toString(), difficulty);
         this.navMenuExplorer.setCheckedItem(getMenuItemIdForContent(difficulty));
+=======
+        this.gridDessertsView.loadContent(this.searchView.getQuery().toString(), difficulty);
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
         this.srlRefresh.setRefreshing(false);
     }
 
@@ -196,6 +204,7 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
                 }
                 break;
             case R.id.mnAllDifficulty:
+<<<<<<< HEAD
                 if(difficulty != -1) {
                     difficulty = -1;
                     this.loadFavorites = false;
@@ -229,6 +238,26 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
                     this.loadFavorites = false;
                     loadContent();
                 }
+=======
+                difficulty = -1;
+                onResume();
+                break;
+            case R.id.mnEasyDifficulty:
+                difficulty = 0;
+                onResume();
+                break;
+            case R.id.mnMiddleDifficulty:
+                difficulty = 1;
+                onResume();
+                break;
+            case R.id.mnMiddleHardDifficulty:
+                difficulty = 2;
+                onResume();
+                break;
+            case R.id.mnHardDifficulty:
+                difficulty = 3;
+                onResume();
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 break;
             case R.id.mnAbout:
                 Utils.showAboutDialog(this, this.gridDessertsView);

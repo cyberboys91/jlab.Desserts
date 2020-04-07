@@ -178,7 +178,10 @@ public class DessertDetailsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         menu.removeItem(R.id.mnDifficulty);
+<<<<<<< HEAD
         menu.removeItem(R.id.mnFavorites);
+=======
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
         return true;
     }
 

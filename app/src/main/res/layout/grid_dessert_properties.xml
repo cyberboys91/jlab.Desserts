@@ -5,10 +5,15 @@
     android:layout_alignParentTop="true"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
+<<<<<<< HEAD
     android:layout_weight="1"
     android:padding="15dp"
     android:background="@drawable/dessert_property_grid"
     android:orientation="vertical">
+=======
+    android:padding="15dp"
+    android:background="@drawable/dessert_property_grid">
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
 
     <TextView
         android:layout_width="fill_parent"
@@ -24,6 +29,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvDessertComment"
         android:textSize="@dimen/text_size"
+<<<<<<< HEAD
         android:textColor="@android:color/holo_blue_dark"/>
 
     <TextView
@@ -34,5 +40,9 @@
         android:maxLines="4"
         android:ellipsize="end"
         android:textColor="@color/black"/>
+=======
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_below="@+id/tvDessertName" />
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
 
 </LinearLayout>

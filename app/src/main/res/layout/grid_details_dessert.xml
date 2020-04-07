@@ -40,8 +40,13 @@
                 android:textColor="@color/white"
                 android:id="@+id/tvDifficulty"
                 android:layout_alignParentTop="true"
+<<<<<<< HEAD
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+=======
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 android:textSize="@dimen/text_size_big"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"

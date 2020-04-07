@@ -1,5 +1,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+<<<<<<< HEAD
     <item android:id="@+id/mnDifficulty"
         android:title="@string/show">
         <menu>
@@ -17,21 +18,47 @@
             <item
                 android:id="@+id/mnEasyDifficulty"
                 android:icon="@drawable/easy_difficulty_circle"
+=======
+
+    <item android:id="@+id/mnDifficulty"
+        android:title="@string/difficulty">
+        <menu>
+            <item
+                android:id="@+id/mnAllDifficulty"
+                android:orderInCategory="100"
+                android:title="@string/all"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/mnEasyDifficulty"
+                android:orderInCategory="100"
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 android:title="@string/difficulty_0"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/mnMiddleDifficulty"
+<<<<<<< HEAD
                 android:icon="@drawable/middle_difficulty_circle"
+=======
+                android:orderInCategory="100"
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 android:title="@string/difficulty_1"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/mnMiddleHardDifficulty"
+<<<<<<< HEAD
                 android:icon="@drawable/middle_hard_difficulty_circle"
+=======
+                android:orderInCategory="100"
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 android:title="@string/difficulty_2"
                 app:showAsAction="never" />
             <item
                 android:id="@+id/mnHardDifficulty"
+<<<<<<< HEAD
                 android:icon="@drawable/hard_difficulty_circle"
+=======
+                android:orderInCategory="100"
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 android:title="@string/difficulty_3"
                 app:showAsAction="never" />
         </menu>

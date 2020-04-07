@@ -100,6 +100,7 @@ public class DessertManager extends SQLiteAssetHelper {
         }
     }
 
+<<<<<<< HEAD
     public int setFavoriteDessert (int dessertId, boolean isFavorite) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -113,6 +114,17 @@ public class DessertManager extends SQLiteAssetHelper {
         Cursor cursor = db.query(DESSERT_TABLE_NAME, null,
                         String.format("%s = ? and %s = 1", LANGUAGE_COLUMN, FAVORITE_COLUMN),
                         new String[] { getLanguage() },
+=======
+    public ArrayList<Dessert> getAllDetails (String query, int difficulty) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.query(DESSERT_TABLE_NAME, null,
+                difficulty != -1
+                    ? String.format("%s= ? & %s= ?", LANGUAGE_COLUMN, DIFFICULTY_COLUMN)
+                    : String.format("%s= ?", LANGUAGE_COLUMN),
+                difficulty != -1
+                    ? new String[] { getLanguage(), String.valueOf(difficulty)}
+                    : new String[] { getLanguage()},
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
                 null, null, null, null);
         ArrayList<Dessert> result = new ArrayList<>();
         while (cursor.moveToNext()) {

@@ -144,6 +144,7 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
     }
 
     public void loadContent(String query, int difficulty) {
+<<<<<<< HEAD
         mAdapter.clear();
         this.query = query;
         mAdapter.addAll(dessertManager.getAllDetails(query, difficulty));
@@ -153,6 +154,11 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
         mAdapter.clear();
         this.query = query;
         mAdapter.addAll(dessertManager.getFavorites(query));
+=======
+        mAdapter.clear();
+        this.query = query;
+        mAdapter.addAll(dessertManager.getAllDetails(query, difficulty));
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
     }
 
     @Override

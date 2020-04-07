@@ -22,10 +22,13 @@
     <string name="difficulty_3">Difficult</string>
     <string name="difficulty">Difficulty</string>
     <string name="all">All</string>
+<<<<<<< HEAD
     <string name="add_to_favorite">Add to Favorites</string>
     <string name="remove_from_favorite">Remove from Favorites</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="favorites">Favorites</string>
     <string name="show">Show</string>
+=======
+>>>>>>> e4563d8c19c387551752ee3c668f3fc0569c5457
 </resources>
