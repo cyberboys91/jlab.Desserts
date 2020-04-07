@@ -20,10 +20,19 @@
             android:layout_gravity="center_vertical">
 
             <ImageView
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:id="@+id/ivDessertListImage"
                 android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/ivIsFavorite"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_margin="2dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -31,9 +40,9 @@
                 android:textColor="@color/white"
                 android:id="@+id/tvDifficulty"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textSize="@dimen/short_text_size_v1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:textSize="@dimen/text_size_big"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:paddingRight="7dp"

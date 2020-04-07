@@ -21,4 +21,12 @@
     <string name="difficulty_1">Medio</string>
     <string name="difficulty_2">Medio Difícil</string>
     <string name="difficulty_3">Difícil</string>
+    <string name="difficulty">Dificultad</string>
+    <string name="all">Todas</string>
+    <string name="add_to_favorite">Añadir a Favoritos</string>
+    <string name="remove_from_favorite">Eliminar de Favoritos</string>
+    <string name="navigation_drawer_open">Abriendo menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrando menú de navegación</string>
+    <string name="favorites">Favoritos</string>
+    <string name="show">Ver</string>
 </resources>

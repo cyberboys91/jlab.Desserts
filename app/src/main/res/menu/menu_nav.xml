@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/mnDifficulty"
+        android:title="@string/difficulty">
+        <menu>
+            <item
+                android:id="@+id/mnAllDifficulty"
+                android:title="@string/all"
+                android:checkable="true"
+                app:actionLayout="@layout/all_difficulty_circle"/>
+            <item
+                android:id="@+id/mnEasyDifficulty"
+                app:actionLayout="@layout/easy_difficulty_circle"
+                android:checkable="true"
+                android:title="@string/difficulty_0"/>
+            <item
+                android:id="@+id/mnMiddleDifficulty"
+                app:actionLayout="@layout/middle_difficulty_circle"
+                android:checkable="true"
+                android:title="@string/difficulty_1"/>
+            <item
+                android:id="@+id/mnMiddleHardDifficulty"
+                app:actionLayout="@layout/middle_hard_difficulty_circle"
+                android:checkable="true"
+                android:title="@string/difficulty_2"/>
+            <item
+                android:id="@+id/mnHardDifficulty"
+                app:actionLayout="@layout/hard_difficulty_circle"
+                android:checkable="true"
+                android:title="@string/difficulty_3" />
+        </menu>
+    </item>
 
+    <item
+        android:id="@+id/mnFavorites"
+        app:actionLayout="@layout/img_favorite"
+        android:checkable="true"
+        android:title="@string/favorites" />
+
+    <item
+        android:id="@+id/mnRateApp"
+        android:title="@string/show_in_google_play"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/mnAbout"
+        android:title="@string/about"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/mnClose"
+        android:title="@string/close"
+        app:showAsAction="never" />
 </menu>

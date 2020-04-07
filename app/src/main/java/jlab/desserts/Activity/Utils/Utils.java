@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import jlab.desserts.R;
@@ -17,6 +18,9 @@ import jlab.desserts.R;
 public class Utils {
     public static final String DESSERTS_ID_KEY = "DESSERTS_ID_KEY";
     public static final String ID_KEY = "ID_KEY";
+    public static final String DIFFICULTY_KEY = "DIFFICULTY_KEY";
+    public static final String SEARCH_QUERY_KEY = "SEARCH_QUERY_KEY";
+    public static final String FAVORITE_KEY = "FAVORITE_KEY";
     public static IRunOnUIThread runnerOnUIThread;
 
     public static int getDifficultyResourceText (int difficulty) {
@@ -35,13 +39,13 @@ public class Utils {
     public static int getDifficultyResourceColor (int difficulty) {
         switch (difficulty) {
             case 0:
-                return R.drawable.easy_difficulty_background;
+                return R.drawable.easy_difficulty_background_v2;
             case 1:
-                return R.drawable.middle_difficulty_background;
+                return R.drawable.middle_difficulty_background_v2;
             case 2:
-                return R.drawable.middle_hard_difficulty_background;
+                return R.drawable.middle_hard_difficulty_background_v2;
             default:
-                return R.drawable.hard_difficulty_background;
+                return R.drawable.hard_difficulty_background_v2;
         }
     }
 
@@ -116,5 +120,11 @@ public class Utils {
             ((TextView) snackbar.getView().findViewById(R.id.snackbar_text)).setTextColor(viewForSnack.getResources().getColor(R.color.white));
             snackbar.show();
         }
+    }
+
+    public static void setFavoriteView(ImageView imageView, boolean favorite) {
+        imageView.setImageResource(favorite
+                ? R.drawable.img_favorite_checked
+                : R.drawable.img_favorite_not_checked);
     }
 }

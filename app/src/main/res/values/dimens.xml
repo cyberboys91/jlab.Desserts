@@ -19,7 +19,7 @@
     <dimen name="text_size">13dp</dimen>
     <dimen name="short_text_size_v1">12dp</dimen>
     <dimen name="short_text_size_v2">11dp</dimen>
-    <dimen name="text_size_big">16dp</dimen>
+    <dimen name="text_size_big">15dp</dimen>
     <dimen name="title_size">18dp</dimen>
     <dimen name="tool_bar_height">60dp</dimen>
     <dimen name="tool_bar_audio_height">65dp</dimen>
