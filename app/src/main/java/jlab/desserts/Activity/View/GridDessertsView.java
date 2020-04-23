@@ -68,7 +68,7 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
         last = firstVisibleItem + visibleItemCount - 1;
     }
 
-    public void setOnGetSetViewListener (final LayoutInflater inflater, final int iconSize,
+    public void setOnGetSetViewListener (final LayoutInflater inflater, final int iconWidth, final int iconHeight,
                                          final OnDessertClickListener onDessertClickListener) {
         this.mAdapter.setonGetSetViewListener(new DessertAdapter.OnGetSetViewListener() {
             @Override
@@ -86,8 +86,8 @@ public class GridDessertsView extends GridView implements AbsListView.OnScrollLi
                 view.findViewById(R.id.tvDifficulty).setBackground(getResources()
                         .getDrawable(Utils.getDifficultyResourceColor(resource.getDifficulty())));
                 ViewGroup.LayoutParams newParams = view.getLayoutParams();
-                newParams.height = iconSize;
-                newParams.width = iconSize;
+                newParams.height = iconHeight;
+                newParams.width = iconWidth;
                 ((TextView) view.findViewById(R.id.tvDessertDescription)).setText(resource.getDescription());
                 final ImageView ivFavorite = (ImageView) view.findViewById(R.id.ivIsFavorite);
                 Utils.setFavoriteView(ivFavorite, resource.isFavorite());

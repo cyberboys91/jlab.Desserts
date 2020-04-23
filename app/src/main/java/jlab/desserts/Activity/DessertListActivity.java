@@ -64,7 +64,7 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
         setContentView(R.layout.activity_dessert_list);
         this.inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         this.gridDessertsView = (GridDessertsView) findViewById(android.R.id.list);
-        this.gridDessertsView.setOnGetSetViewListener(inflater, getIconSize(), onDessertClickListener);
+        this.gridDessertsView.setOnGetSetViewListener(inflater, getListItemWidth(), getListItemHeight(), onDessertClickListener);
         this.srlRefresh = (SwipeRefreshLayout) findViewById(R.id.srlRefresh);
         this.srlRefresh.setColorSchemeResources(R.color.colorAccent);
         this.searchView = (SearchView) findViewById(R.id.svSearch);
@@ -125,20 +125,30 @@ public class DessertListActivity extends AppCompatActivity implements Utils.IRun
         adView.loadAd(adRequest);
     }
 
-    public int getIconSize () {
+    public int getListItemHeight () {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int rotation = getWindowManager().getDefaultDisplay().getRotation();
         boolean isPortrait = rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_180;
         int numColumns = (isPortrait ? 1 : 2);
         this.gridDessertsView.setNumColumns(numColumns);
-        return (displayMetrics.widthPixels / numColumns);
+        return (int)(displayMetrics.heightPixels / (isPortrait ? 2.5 : 1.5));
+    }
+
+    public int getListItemWidth () {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int rotation = getWindowManager().getDefaultDisplay().getRotation();
+        boolean isPortrait = rotation == Surface.ROTATION_0 || rotation == Surface.ROTATION_180;
+        int numColumns = (isPortrait ? 1 : 2);
+        this.gridDessertsView.setNumColumns(numColumns);
+        return displayMetrics.widthPixels / numColumns;
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        this.gridDessertsView.setOnGetSetViewListener(inflater, getIconSize(), onDessertClickListener);
+        this.gridDessertsView.setOnGetSetViewListener(inflater, getListItemWidth(), getListItemHeight(), onDessertClickListener);
     }
 
     @Override
