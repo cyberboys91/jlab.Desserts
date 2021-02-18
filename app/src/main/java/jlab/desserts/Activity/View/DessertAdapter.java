@@ -5,7 +5,7 @@ import java.util.Collection;
 import android.view.ViewGroup;
 import android.content.Context;
 import android.widget.ArrayAdapter;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import jlab.desserts.Activity.Utils.Dessert;
 
 /*

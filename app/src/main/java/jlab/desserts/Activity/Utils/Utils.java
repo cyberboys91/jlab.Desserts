@@ -12,7 +12,7 @@ import android.content.Context;
 import android.widget.TextView;
 import android.widget.ImageView;
 import android.content.DialogInterface;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 
 import jlab.desserts.R;
 

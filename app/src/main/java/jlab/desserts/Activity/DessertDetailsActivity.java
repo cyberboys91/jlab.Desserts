@@ -14,15 +14,15 @@ import android.graphics.Bitmap;
 import android.widget.ImageView;
 import android.util.DisplayMetrics;
 import android.widget.RelativeLayout;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import com.google.android.gms.ads.AdView;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.content.res.Configuration;
 import jlab.desserts.Activity.Utils.Utils;
 import com.google.android.gms.ads.AdRequest;
 import android.view.animation.AnimationUtils;
 import jlab.desserts.Activity.Utils.Dessert;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import jlab.desserts.Activity.Utils.DessertManager;
 
 public class DessertDetailsActivity extends AppCompatActivity {
