@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "jlab.desserts"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 6
+        versionCode 20210707
         versionName "1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }

@@ -26,7 +26,15 @@ public class Dessert {
         this.difficulty = difficulty;
         this.dessertId = dessertId;
         this.isFavorite = isFavorite;
-        this.countIngredients = ingredients.split("\n").length;
+        this.countIngredients = getCountIngredients(ingredients);
+    }
+
+    public int getCountIngredients (String ingredients) {
+        int count = 0;
+        for (int i = 0; i < ingredients.length(); i++)
+            if (ingredients.charAt(i) == '•')
+                count++;
+        return count;
     }
 
     public int getId() {
